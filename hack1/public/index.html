@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>物与远方关系翻译机</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="page-bg">
+    <div class="star-layer"></div>
+    <div class="main-container">
+        <!-- 左侧输入区域 -->
+        <div class="left-column">
+            <div class="panel-title">
+                <span class="icon">🎯</span>
+                <h2>改造目标</h2>
+            </div>
+            <textarea id="goalInput" placeholder="描述你想要达成的改造目标..."></textarea>
+
+            <div class="divider">⋆</div>
+
+            <div class="panel-title">
+                <span class="icon">🖼️</span>
+                <h2>现实锚点 · 旧物素材</h2>
+            </div>
+
+            <div class="upload-card" id="uploadCard">
+                <input type="file" multiple accept="image/*" id="fileInput" class="upload-area">
+                <div class="upload-placeholder">
+                    <div class="upload-icon">📷</div>
+                    <div>点击 / 拖拽实物照片上传</div>
+                </div>
+            </div>
+
+            <div class="preview-block hidden" id="previewBlock">
+                <div class="preview-list" id="previewList"></div>
+                <button class="clear-all-btn" id="clearAllBtn">清空全部图片</button>
+            </div>
+
+            <button id="submitBtn" disabled>开始生成改造方案</button>
+        </div>
+
+        <!-- 右侧结果区域 -->
+        <div class="right-column">
+            <div class="panel-title">
+                <span class="icon">✨</span>
+                <h2><h2>分步实操指南</h2>
+</h2>
+            </div>
+
+            <div id="errorTip" class="error-tip" style="display:none;"></div>
+
+            <div class="stage-wrap hidden" id="stageCard">
+                <div class="stage-content">
+                    <h2 id="stageTitle" class="stage-title">第1阶段 · 阶段1</h2>
+
+                    <div class="stage-text">
+                        <p><strong>操作：</strong><span id="stageAction"></span></p>
+
+                        <div class="scene-box">
+                            <p><strong>Screen Description:</strong><span id="stageSceneCn"></span></p>
+                            <p class="scene-en">
+                                <span id="stageSceneEn"></span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="stageImgBox" class="stage-img-box">
+                        <div class="img-loading">⏳等待生成配图</div>
+                    </div>
+                </div>
+
+                <div class="page-control">
+                    <button id="btnPrev" class="page-btn">上一步</button>
+                    <span id="pageNum">1 / 1</span>
+                    <button id="btnNext" class="page-btn">下一步</button>
+                </div>
+            </div>
+
+            <div class="empty-tip" id="emptyHint">上传图片并提交，生成分步改造方案</div>
+        </div>
+    </div>
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>
